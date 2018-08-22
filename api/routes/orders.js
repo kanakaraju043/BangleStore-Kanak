@@ -41,6 +41,7 @@ router.patch("/:orderId",(req, res, next) =>{
     })
 })
 
+// Delete Order
 router.delete("/:orderId",(req, res, next) =>{
     res.status(200).json({
         message: "order deleted",
