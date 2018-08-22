@@ -9,8 +9,6 @@ router.get("/",(req,res,next) =>{
     })
 })
 
-// creating post 
-
 router.post("/",(req,res,next) =>{
     let order = {
         orderId: req.body.orderId,
