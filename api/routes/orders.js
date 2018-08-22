@@ -10,6 +10,7 @@ router.get("/",(req,res,next) =>{
 })
 
 // creating post 
+// creating router post
 
 router.post("/",(req,res,next) =>{
     let order = {
