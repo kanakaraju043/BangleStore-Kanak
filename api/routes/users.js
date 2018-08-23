@@ -4,38 +4,49 @@ let router = express.Router()
 let bcrypt = require("bcrypt")
 
 let User = require("../models/user")
-router.post("/sinup",(req,res,next) =>{
+router.post("/signup",(req,res,next) =>{
+    console.log("signup req")
 
-    bcrypt.hash(req.body.password,10,(error,hash)=>{
-        if(error){
-            return res.status(500).json({
-            error: err
-    })
-        }else{
-            let user = new User({
-                _id: new mongoose.Types.ObjectId(),
-                email: req.body.email,
-                password: hash
+    User.find({email:req.body.email})
+        .exec()
+        .then(user =>{
+            if(user){
+                return res.status(409).json({
+                    message: "Email already existed!"
                 })
-        }
+            }else{
 
-    
-    })
-
-    user.save()
-           .then(result =>{
-                console.log(result)
-                res.status(201).json({
-                    message : "Usesr Created",
-                    createdUser: user
+                bcrypt.hash(req.body.password,10,(error,hash)=>{
+                    if(error){
+                        console.log(error)
+                        return res.status(500).json({
+                        error: error
                 })
-    }).catch(err => {
-        console.log(err),
-        res.status(500).json({
-            error: err
+                    }else{
+                        console.log("signup success req")
+            
+                        let user = new User({
+                            _id: new mongoose.Types.ObjectId(),
+                            email: req.body.email,
+                            password: hash
+                            })
+            
+                            user.save()
+                       .then(result =>{
+                            console.log(result)
+                            res.status(201).json({
+                                message : "Usesr Created",
+                            })
+                }).catch(err => {
+                    console.log(err),
+                    res.status(500).json({
+                        error: err
+                    })
+                })
+                    }                
+                })
+            }
         })
-    })
-    
 })
 
 module.exports = router

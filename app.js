@@ -26,11 +26,11 @@ app.use("/products",productRoutes)
 orderRoutes = require("./api/routes/orders")
 app.use("/orders",orderRoutes)
 
-userRoutes = require(".api/routes/users")
+userRoutes = require("./api/routes/users")
 app.use("/user",userRoutes)
 
 app.use((req,res,next) =>{
-    let error = new Error("Not found")
+    let error = new Error("Request Not found")
     error.status = 404
     next(error)
 })
