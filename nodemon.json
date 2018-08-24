@@ -1,5 +1,6 @@
 {
     "env":{
-        "ATLAS_MANGOO_PASSWD":"kanak"
+        "ATLAS_MANGOO_PASSWD":"kanak",
+        "JWT_KEY":"test"
     }
 }
