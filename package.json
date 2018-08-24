@@ -14,8 +14,11 @@
   "author": "kanak",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
+    "decrypt": "0.0.1",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.9",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.3"
