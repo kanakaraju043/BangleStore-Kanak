@@ -28,7 +28,7 @@ router.post("/",(req,res,next) =>{
            .then(result =>{
                 console.log(result)
                 res.status(201).json({
-                    message : "Handling Post Requests to /products",
+                    message : "Product was created",
                     createdProduct: product
                 })
     }).catch(err => {

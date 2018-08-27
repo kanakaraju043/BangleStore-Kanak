@@ -73,7 +73,7 @@ router.post("/login",(req,res,next) =>{
         .exec().
         then(user => {
             if(user.length < 1){
-                return status.length(401).json({
+                return res.status(401).json({
                     message: "Auth failed"
                 })
             }
@@ -114,6 +114,5 @@ router.post("/login",(req,res,next) =>{
         })
 
 })
-
 
 module.exports = router
