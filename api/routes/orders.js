@@ -1,11 +1,15 @@
 let express = require("express")
-
+//const errorLog = require("/utils/logger").errorlog
+//const successlog = require("/utils/logger").successlog;
 // creating router 
 let router = express.Router()
 
 router.get("/",(req,res,next) =>{
+   
+    //errorlog.error("Error Message : ${error}");
     res.status(200).json({
         message : "Retrieve all orders"
+
     })
 })
 
