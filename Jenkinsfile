@@ -1,3 +1,5 @@
 node {
-   echo "Hello World ${SELECT_BRANCH}"
+   echo "SELECTED_ENVIRONMENT ${SELECTED_ENVIRONMENT}"
+      echo "SELECT_BRANCH ${SELECT_BRANCH}"
+
 }
